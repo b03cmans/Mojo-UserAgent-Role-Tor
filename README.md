@@ -1,39 +1,44 @@
-NAME
-   
-   Mojo::UserAgent::Role::Tor - A role to use Mojo::UserAgent over Tor.
+# Mojo::UserAgent::Role::Tor
 
-SYNOPSIS
-        
-    use Mojo::UserAgent;
-           
-           my $ua = Mojo::UserAgent->new->with_roles('+Tor');
-           
-           $ua->connect_to_tor(9150,9151,'password');
-           
-           print $ua->get('https://api.ipify.org/?format=json' )->res->json->{ip},"\n";
-           
-           $ua->rotate_ip();
-           
-           print $ua->get('http://httpbin.org/ip')->res->json->{origin},"\n";
+## Installation Instructions
+To install Mojo::UserAgent::Role::Tor, you can use the following command:
 
-Methods
-   
-   Mojo::UserAgent::Role::Tor has the following Methods:
+```
+cpm install Mojo::UserAgent::Role::Tor
+```
 
-  
-  connect_to_tor($tor_port, $tor_control_port,$password);
-        
-       
-       $ua->connect_to_tor(9150,9151,'password');
+## Requirements
+- Perl 5.10 or higher
+- Some additional CPAN modules might be required, check the documentation for details.
 
-  
-    Try to connect to tor proxy and control port
-  
-  rotate_ip
-      
-      $ua->rotate_ip;
+## Usage Examples
+```perl
+use Mojo::UserAgent;
 
-    Try to get another exit node via tor. Returns 1 for success and 0 for
-    failure.
+my $ua = Mojo::UserAgent->new;
+$ua->get('http://example.com')->result;
+```
 
+## Configuration
+You can configure Mojo::UserAgent::Role::Tor using environment variables:
+- `TOR SOCKS5` - The SOCKS5 proxy address for Tor.
+- `TOR_CONFIG` - Path to the torrc configuration file, if needed.
 
+## Documentation Links
+For more detailed documentation, visit:
+- [CPAN Module](https://metacpan.org/pod/Mojo::UserAgent::Role::Tor)
+- [GitHub Repository](https://github.com/b03cmans/Mojo-UserAgent-Role-Tor)
+
+## License
+This library is released under the MIT License.
+
+## Contributing Guidelines
+We welcome contributions! Please follow the guidelines in the CONTRIBUTING.md file.
+
+## Author Information
+**Author Name**: Your Name Here
+**Contact**: youremail@example.com
+
+---
+
+*Updated on 2026-03-30 00:16:57 UTC*
